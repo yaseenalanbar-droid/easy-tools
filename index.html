@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>أدوات سهلة</title>
+
+<style>
+body{
+  font-family:Arial;
+  background:#f5f7fb;
+  text-align:center;
+  padding:30px;
+}
+.box{
+  max-width:500px;
+  margin:auto;
+  background:white;
+  padding:25px;
+  border-radius:20px;
+  box-shadow:0 5px 20px #ccc;
+}
+input{
+  width:90%;
+  padding:15px;
+  font-size:16px;
+  margin:15px 0;
+}
+button{
+  background:#1677ff;
+  color:white;
+  border:0;
+  padding:15px 30px;
+  border-radius:10px;
+  font-size:18px;
+}
+#qr{
+  margin-top:25px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+<h1>أدوات سهلة</h1>
+<p>أنشئ QR Code مجاناً</p>
+
+<input id="text" placeholder="اكتب النص أو الرابط هنا">
+
+<br>
+
+<button onclick="makeQR()">إنشاء QR</button>
+
+<div id="qr"></div>
+</div>
+
+<script>
+function makeQR(){
+  let text=document.getElementById("text").value;
+  if(!text){
+    alert("اكتب رابط أو نص أولاً");
+    return;
+  }
+
+  document.getElementById("qr").innerHTML =
+  '<img width="220" src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data='
+  + encodeURIComponent(text) + '">';
+}
+</script>
+
+</body>
+</html>
