@@ -56,9 +56,22 @@ button{
 </div>
   
 
-  <h2>أدوات جديدة قريباً 🚀</h2>
+  <div class="box">
+  <h2>🔐 مولد كلمات مرور</h2>
+  <p>أنشئ كلمة مرور قوية بضغطة واحدة</p>
+  <button onclick="makePassword()">إنشاء كلمة مرور</button>
+  <p id="password"></p>
+  </div>
+
 <script>
-  
+  function makePassword(){
+  const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%&*";
+  let password = "";
+  for(let i = 0; i < 16; i++){
+    password += chars.charAt(Math.floor(Math.random() * chars.length));
+  }
+  document.getElementById("password").innerText = password;
+  }
 function makeQR(){
   let text=document.getElementById("text").value;
   if(!text){
